@@ -13,7 +13,10 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 
-public class Browser {
+/**
+ * 客户端浏览器相关
+ */
+public class ClientBrowser {
 
     /**
      * 通过GET请求获取HTML页面内容
@@ -127,9 +130,9 @@ public class Browser {
         String url = "https://doub.io";
         String proxyIp = "192.140.0.65";
         Integer proxyPort = 53281;
-        String res = new Browser().getHtmlContentByGetRequest2(url, proxyIp, proxyPort);
+        String res = new ClientBrowser().getHtmlContentByGetRequest2(url, proxyIp, proxyPort);
         System.out.println(res);
-        String res2 = new Browser().getHtmlContentByGetRequest("http://www.data5u.com/free/gwpt/index.shtml");
+        String res2 = new ClientBrowser().getHtmlContentByGetRequest("http://www.data5u.com/free/gwpt/index.shtml");
         System.out.println(res2);
     }
 }
