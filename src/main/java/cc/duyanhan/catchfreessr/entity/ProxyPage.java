@@ -4,7 +4,11 @@ package cc.duyanhan.catchfreessr.entity;
 * @version 创建时间：2018年9月22日 下午10:38:38 
 * 要获取的代理信息实体
 */
-public class ProxyEntity {
+public class ProxyPage {
+	/**
+	 * 页面内容
+	 */
+	private String content;
 	/**
 	 * IP地址
 	 */
@@ -41,6 +45,12 @@ public class ProxyEntity {
 	 * 最后验证时间
 	 */
 	private String finalVerificationTime;
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	public String getIp() {
 		return ip;
 	}
@@ -95,6 +105,4 @@ public class ProxyEntity {
 	public void setFinalVerificationTime(String finalVerificationTime) {
 		this.finalVerificationTime = finalVerificationTime;
 	}
-	
-	
 }

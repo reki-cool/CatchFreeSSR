@@ -12,21 +12,20 @@ import org.apache.http.util.EntityUtils;
 * @version 创建时间：2018年9月22日 下午10:22:16 
 * 页面下载工具类
 */
-public class DownloadPageUtils {
+public class PageDownloadUtils {
 
-	public static String getPageHtml(String url) {
+	public static String getPageContent(String url) {
 		HttpClientBuilder builder = HttpClientBuilder.create();
 		CloseableHttpClient client = builder.build();
-		HttpGet get = new HttpGet(url);
+		HttpGet request = new HttpGet(url);
+		String content = null;
 		try {
-			CloseableHttpResponse response = client.execute(get);
+			CloseableHttpResponse response = client.execute(request);
 			HttpEntity entity = response.getEntity();
-			if (entity != null) {
-			    return EntityUtils.toString(entity);
-			}
+			content = EntityUtils.toString(entity);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-        return null;
+		return content;
 	}
 }
