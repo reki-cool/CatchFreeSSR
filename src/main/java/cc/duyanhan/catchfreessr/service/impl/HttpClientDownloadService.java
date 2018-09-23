@@ -30,7 +30,7 @@ public class HttpClientDownloadService implements DownloadService {
 			headers.put("Referer", "http://www.data5u.com/");
 			headers.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36");
 			String content = PageDownloadUtils.getPageContentWithHeaders(url, headers);
-			LOGGER.info(content);
+//			LOGGER.info(content);
 			proxyPage.setContent(content);
 		} catch (Exception e) {
 			e.printStackTrace();

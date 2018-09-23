@@ -36,21 +36,21 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!--HttpCore HttpClient HttpMime-->
+		<!--HttpCore HttpClient HttpMime -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpcore</artifactId>
-			<version>4.4.9</version>
+			<version>4.4.9</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
-			<version>4.5.5</version>
+			<version>4.5.5</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpmime</artifactId>
-			<version>4.5.5</version>
+			<version>4.5.5</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
 		<!-- HtmlCleaner -->
 		<dependency>
@@ -63,6 +63,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-log4j</artifactId>
 			<version>1.3.8.RELEASE</version>
+		</dependency>
+		<!-- Selenium 自动化浏览器，用于解决ajax异步加载内容无法获取的问题 -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.14.0</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
 
 	</dependencies>
