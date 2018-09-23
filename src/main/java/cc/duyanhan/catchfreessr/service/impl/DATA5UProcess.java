@@ -1,6 +1,5 @@
 package cc.duyanhan.catchfreessr.service.impl;
 
-import org.htmlcleaner.CleanerProperties;
 import org.htmlcleaner.HtmlCleaner;
 import org.htmlcleaner.TagNode;
 import org.htmlcleaner.XPatherException;
@@ -24,7 +23,7 @@ public class DATA5UProcess implements ProcessService {
 		TagNode rootNode = cleaner.clean(content);
 		Object[] evaluateXPath;
 		try {
-			evaluateXPath = rootNode.evaluateXPath("//*[@id=\"m_26659\"]/div/div[2]/div/div/div[2]/div/ul[2]/li[1]/a");
+			evaluateXPath = rootNode.evaluateXPath("/html/body/div[5]/ul/li[2]/ul[2]/span[1]/li");
 			if (evaluateXPath != null && evaluateXPath.length > 0) {
 				TagNode node = (TagNode) evaluateXPath[0];
 				System.out.println(node.getText().toString());

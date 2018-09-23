@@ -1,10 +1,14 @@
 package cc.duyanhan.catchfreessr.util;
 
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
 /** 
@@ -14,17 +18,59 @@ import org.apache.http.util.EntityUtils;
 */
 public class PageDownloadUtils {
 
-	public static String getPageContent(String url) {
-		HttpClientBuilder builder = HttpClientBuilder.create();
-		CloseableHttpClient client = builder.build();
-		HttpGet request = new HttpGet(url);
+	/**
+	 * 普通get请求
+	 * @param url
+	 * @return
+	 * @throws Exception
+	 */
+	public static String getPageContent(String url) throws Exception{
+		CloseableHttpClient httpclient = HttpClients.custom().build();
 		String content = null;
 		try {
-			CloseableHttpResponse response = client.execute(request);
-			HttpEntity entity = response.getEntity();
-			content = EntityUtils.toString(entity);
-		} catch (Exception e) {
-			e.printStackTrace();
+			HttpGet httpGet = new HttpGet(url);
+			CloseableHttpResponse response = null;
+			try {
+				response = httpclient.execute(httpGet);
+				HttpEntity entity = response.getEntity();
+				content = EntityUtils.toString(entity);
+			} finally {
+				response.close();
+			}
+		} finally {
+			httpclient.close();
+		}
+		return content;
+	}
+	
+	/**
+	 * 设置请求头的get请求
+	 * @param url
+	 * @param headers
+	 * @return
+	 * @throws Exception
+	 */
+	public static String getPageContentWithHeaders(String url, Map<String, String> headers) throws Exception{
+		CloseableHttpClient httpclient = HttpClients.custom().build();
+		String content = null;
+		try {
+			HttpGet httpGet = new HttpGet(url);
+			if (headers != null && headers.size() > 0) {
+				Set<Entry<String, String>> headerSet = headers.entrySet();
+				for (Entry<String, String> header : headerSet) {
+					httpGet.setHeader(header.getKey(), header.getValue());
+				}
+			}
+			CloseableHttpResponse response = null;
+			try {
+				response = httpclient.execute(httpGet);
+				HttpEntity entity = response.getEntity();
+				content = EntityUtils.toString(entity);
+			} finally {
+				response.close();
+			}
+		} finally {
+			httpclient.close();
 		}
 		return content;
 	}

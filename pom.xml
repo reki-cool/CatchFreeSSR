@@ -36,7 +36,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!--添加HTTP通信相关依赖 -->
+		<!--HttpCore HttpClient HttpMime-->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpcore</artifactId>
@@ -58,7 +58,12 @@
 			<artifactId>htmlcleaner</artifactId>
 			<version>2.21</version>
 		</dependency>
-
+		<!-- Spring Boot log4j依赖 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j</artifactId>
+			<version>1.3.8.RELEASE</version>
+		</dependency>
 
 	</dependencies>
 

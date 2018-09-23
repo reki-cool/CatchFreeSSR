@@ -16,7 +16,7 @@ public class CatchfreeSSRApplicationTests {
     @Test
     public void contextLoads() {
     	HttpClientDownloadService httpClientDownloadService = new HttpClientDownloadService();
-    	ProxyPage page = httpClientDownloadService.download("http://www.youku.com/");
+    	ProxyPage page = httpClientDownloadService.download("http://www.data5u.com/free/area/%E9%A6%99%E6%B8%AF/index.html");
     	DATA5UProcess data5uProcess = new DATA5UProcess();
     	data5uProcess.process(page);
     }
